@@ -8,12 +8,8 @@ export default function App() {
   const [posts, setPosts] = useState<PostData[]>([]);
 
   const onSubmitNewPost = (newPost: PostData) => {
-    console.log('submitted');
-    console.log(newPost);
     /* use setPosts instead of pushing to array */
     setPosts((prevPosts) => [...prevPosts, newPost]);
-    console.log('after submit');
-    console.log(posts);
   };
 
   return (

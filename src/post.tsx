@@ -14,7 +14,7 @@ export default function Post({ name, text }) {
   const [showReply, setShowReply] = useState(true);
   const [showInputBox, setShowInputBox] = useState(false);
 
-  const handleShowReply = (e: React.MouseEvent) => {
+  const handleShowReply = () => {
     if (replies.length === 1) {
       setShowReply(false);
     }
@@ -40,7 +40,7 @@ export default function Post({ name, text }) {
           <button
             type="button"
             className="text-white bg-rose-500 hover:bg-green-700 px-2 py-2 ml-auto rounded"
-            onClick={(e) => handleShowReply(e)}
+            onClick={() => handleShowReply()}
           >
             reply
           </button>
@@ -60,7 +60,7 @@ export default function Post({ name, text }) {
             <button
               type="button"
               className="text-white bg-rose-500 hover:bg-green-700 px-2 py-2 ml-auto rounded"
-              onClick={(e) => handleShowReply(e)}
+              onClick={() => handleShowReply()}
             >
               reply
             </button>

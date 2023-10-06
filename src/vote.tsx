@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 export default function Vote() {
   const [voteCount, setVoteCount] = useState(0);
 
-  const handleUpvote = (e) => {
+  const handleUpvote = () => {
     const newVote = voteCount + 1;
     setVoteCount(newVote);
   };
 
-  const handleDownvote = (e) => {
+  const handleDownvote = () => {
     const newVote = voteCount - 1;
     setVoteCount(newVote);
   };
@@ -18,7 +18,7 @@ export default function Vote() {
       <button
         type="button"
         className="text-fuchsia-500 font-bold"
-        onClick={(e) => handleUpvote(e)}
+        onClick={() => handleUpvote()}
       >
         +
       </button>
@@ -26,7 +26,7 @@ export default function Vote() {
       <button
         type="button"
         className="text-fuchsia-500 fond-extrabold"
-        onClick={(e) => handleDownvote(e)}
+        onClick={() => handleDownvote()}
       >
         -
       </button>
