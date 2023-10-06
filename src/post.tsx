@@ -13,29 +13,16 @@ export default function Post({ name, text }) {
   const [showReply, setShowReply] = useState(true);
   const [showInputBox, setShowInputBox] = useState(false);
 
-  const handleReply = (e: React.MouseEvent) => {
-    // onClickedReply();
-    if (replies.length === 2) {
-      setShowInputBox(false);
+  const handleShowReply = (e: React.MouseEvent) => {
+    if (replies.length === 1) {
       setShowReply(false);
-      console.log('line21\n');
-      console.log(replies);
-      return;
     }
     setShowInputBox(true);
   };
 
   const onSubmitNewReply = (newPost: PostData) => {
-    console.log('line 29\n');
-    console.log(newPost);
-    console.log(replies);
     setShowInputBox(false);
     setReplies((prevReplies) => [...prevReplies, newPost]);
-    if (replies.length === 2) {
-      setShowReply(false);
-    }
-    console.log('line 36\n');
-    console.log(replies);
   };
 
   return (
@@ -43,17 +30,22 @@ export default function Post({ name, text }) {
       <div>{name}</div>
       <div>{text}</div>
       {showReply ? (
-        <button type="button" onClick={(e) => handleReply(e)}>
+        <button type="button" onClick={(e) => handleShowReply(e)}>
           reply
         </button>
       ) : null}
-      {showInputBox ? <Input onSubmitNewPost={onSubmitNewReply} /> : null}
       {replies.map((reply) => (
-        <div>
+        <div key={reply.id}>
           <div>{reply.name}</div>
           <div>{reply.text}</div>
+          {showReply ? (
+            <button type="button" onClick={(e) => handleShowReply(e)}>
+              reply
+            </button>
+          ) : null}
         </div>
       ))}
+      {showInputBox ? <Input onSubmitNewPost={onSubmitNewReply} /> : null}
     </div>
   );
 }
