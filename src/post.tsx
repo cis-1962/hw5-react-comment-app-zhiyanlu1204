@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { PostData } from './post-data';
 import Input from './input';
+import Vote from './vote';
 
 Post.propTypes = {
   name: PropTypes.string.isRequired,
@@ -29,6 +30,7 @@ export default function Post({ name, text }) {
     <div>
       <div>{name}</div>
       <div>{text}</div>
+      <Vote />
       {showReply ? (
         <button type="button" onClick={(e) => handleShowReply(e)}>
           reply
@@ -43,6 +45,7 @@ export default function Post({ name, text }) {
               reply
             </button>
           ) : null}
+          <Vote />
         </div>
       ))}
       {showInputBox ? <Input onSubmitNewPost={onSubmitNewReply} /> : null}
