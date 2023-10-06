@@ -8,7 +8,11 @@ Input.propTypes = {
 
 let postCounter = 0;
 
-export default function Input({ onSubmitNewPost }) {
+export default function Input({
+  onSubmitNewPost,
+}: {
+  onSubmitNewPost: (PostData) => void;
+}) {
   const [name, setName] = useState<string>('');
   const [text, setText] = useState<string>('');
 
@@ -32,9 +36,10 @@ export default function Input({ onSubmitNewPost }) {
         onSubmit={(e) => handleSubmit(e)}
         // style={{ display: 'flex', flexDirection: 'column' }}
       >
-        <label>
+        <label htmlFor="name">
           name
           <input
+            id="name"
             className="box-border h-10 w-full rounded appearance-none border border-neutral mb-2"
             type="text"
             placeholder="your name here"
@@ -42,9 +47,10 @@ export default function Input({ onSubmitNewPost }) {
             onChange={(e) => setName(e.target.value)}
           />
         </label>
-        <label>
+        <label htmlFor="text">
           text
           <textarea
+            id="text"
             className="box-border p-2 w-full rounded border border-red-900 mb-2"
             placeholder="some text here"
             value={text}
