@@ -14,12 +14,20 @@ export default function Vote() {
   };
 
   return (
-    <div>
-      <button type="button" onClick={(e) => handleUpvote(e)}>
+    <div className="font-semibold">
+      <button
+        type="button"
+        className="text-fuchsia-500 font-bold"
+        onClick={(e) => handleUpvote(e)}
+      >
         +
       </button>
       {voteCount}
-      <button type="button" onClick={(e) => handleDownvote(e)}>
+      <button
+        type="button"
+        className="text-fuchsia-500 fond-extrabold"
+        onClick={(e) => handleDownvote(e)}
+      >
         -
       </button>
     </div>

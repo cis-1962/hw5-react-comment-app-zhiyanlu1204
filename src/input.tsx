@@ -26,8 +26,8 @@ export default function Input({ onSubmitNewPost }) {
   };
 
   return (
-    <div>
-      <header>New Post</header>
+    <div className="container mx-auto mb-4">
+      <header className="text-center text-2xl">New Post</header>
       <form
         onSubmit={(e) => handleSubmit(e)}
         // style={{ display: 'flex', flexDirection: 'column' }}
@@ -35,6 +35,7 @@ export default function Input({ onSubmitNewPost }) {
         <label>
           name
           <input
+            className="box-border h-10 w-full rounded appearance-none border border-neutral mb-2"
             type="text"
             placeholder="your name here"
             value={name}
@@ -44,12 +45,16 @@ export default function Input({ onSubmitNewPost }) {
         <label>
           text
           <textarea
+            className="box-border p-2 w-full rounded border border-red-900 mb-2"
             placeholder="some text here"
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
         </label>
-        <input type="submit" />
+        <input
+          className="text-white bg-blue-500 hover:bg-blue-700 px-2 py-2 ml-auto rounded"
+          type="submit"
+        />
       </form>
     </div>
   );
